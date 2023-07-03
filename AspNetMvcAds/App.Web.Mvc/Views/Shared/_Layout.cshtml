@@ -16,13 +16,16 @@
     <link href="~/plugins/fancybox/jquery.fancybox.pack.css" rel="stylesheet" />
     <link href="~/plugins/jquery-nice-select/css/nice-select.css" rel="stylesheet" />
     <link href="~/css/style.css" rel="stylesheet" />
-    <style type="text/css">.fancybox-margin{margin-right:17px;}</style>
+    <style type="text/css">
+        .fancybox-margin {
+            margin-right: 17px;
+        }</style>
     <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/53/8/intl/tr_ALL/common.js"></script>
     <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/53/8/intl/tr_ALL/util.js"></script>
 </head>
 <body>
     <header>
-       <partial name="_Navbar">
+        <partial name="_Navbar">
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -30,14 +33,21 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - App.Web.Mvc - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    <partial name="_Footer">
+
+        <script src="~/plugins/jquery/jquery.min.js"></script>
+        <script src="~/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script src="~/plugins/bootstrap/js/popper.min.js"></script>
+        <script src="~/plugins/bootstrap/js/bootstrap-slider.js"></script>
+        <script src="~/plugins/tether/js/tether.min.js"></script>
+        <script src="~/plugins/raty/jquery.raty-fa.js"></script>
+        <script src="~/plugins/slick-carousel/slick/slick.min.js"></script>
+        <script src="~/plugins/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+        <script src="~/plugins/fancybox/jquery.fancybox.pack.js"></script>
+        <script src="~/plugins/smoothscroll/smoothscroll.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&amp;libraries=places"></script>
+        <script src="~/plugins/google-map/gmap.js"></script>
+        <script src="~/js/script.js"></script>
+        @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
