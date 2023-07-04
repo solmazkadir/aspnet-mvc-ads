@@ -4,10 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/App.Web.Mvc.styles.css" asp-append-version="true" />
-    <link href="img/favicon.png" rel="shortcut icon">
+
+    <link href="images/favicon.png" rel="shortcut icon">
     <link href="~/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/plugins/bootstrap/css/bootstrap-slider.css" rel="stylesheet" />
     <link href="~/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -16,22 +14,20 @@
     <link href="~/plugins/fancybox/jquery.fancybox.pack.css" rel="stylesheet" />
     <link href="~/plugins/jquery-nice-select/css/nice-select.css" rel="stylesheet" />
     <link href="~/css/style.css" rel="stylesheet" />
-    <style type="text/css">
+   @* <style type="text/css">
         .fancybox-margin {
             margin-right: 17px;
         }</style>
     <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/53/8/intl/tr_ALL/common.js"></script>
-    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/53/8/intl/tr_ALL/util.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/53/8/intl/tr_ALL/util.js"></script>*@
 </head>
-<body>
+<body class="body-wrapper">
     <header>
         <partial name="_Navbar">
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+
             @RenderBody()
-        </main>
-    </div>
+
 
     <partial name="_Footer">
 
