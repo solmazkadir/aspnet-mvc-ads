@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,15 +11,15 @@ namespace App.Data.Entity
     public class User : IEntity
     {
         public int Id { get; set; }
-        [Display(Name = "Ad"), Required(ErrorMessage = "{0} Alanı Gereklidir!")]
+        [Display(Name = "Ad"), Required(ErrorMessage = "{0} Alanı Gereklidir!"), Column(TypeName = "NVARCHAR"), StringLength(100)]
         public string Name { get; set; }
-        [Display(Name = "Email"), Required(ErrorMessage = "{0} Alanı Gereklidir!")]
+        [Display(Name = "Email"), Required(ErrorMessage = "{0} Alanı Gereklidir!"), Column(TypeName = "VARCHAR"), StringLength(250)]
         public string Email { get; set; }
-        [Display(Name = "Password"), Required(ErrorMessage = "{0} Alanı Gereklidir!")]
+        [Display(Name = "Password"), Required(ErrorMessage = "{0} Alanı Gereklidir!"), Column(TypeName = "NVARCHAR"), StringLength(100)]
         public string Password { get; set; }
-        [Display(Name = "Telefon")]
+        [Display(Name = "Telefon"), Column(TypeName = "NVARCHAR"), StringLength(20)]
         public string? Phone { get; set; }
-        [Display(Name = "Adres")]
+        [Display(Name = "Adres"), Column(TypeName = "NVARCHAR"), StringLength(200)]
         public string? Address { get; set; }
         [ScaffoldColumn(false)]
         public Guid? UserGuid { get; set; }

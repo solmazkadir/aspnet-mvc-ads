@@ -9,7 +9,7 @@ namespace App.Data.Entity
     public class CategoryAdvert : IEntity
     {
         public int Id { get; set; }
-        public Category CategoryId { get; set; }
-        public Advert AdvertId { get; set; }
+        public int CategoryId { get; set; }
+        public int AdvertId { get; set; }
     }
 }
