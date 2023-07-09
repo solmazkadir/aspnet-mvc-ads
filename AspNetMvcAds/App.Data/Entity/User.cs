@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace App.Data.Entity
 {
-    internal class User
+    public class User : IEntity
     {
+        public int Id { get; set; }
     }
 }
