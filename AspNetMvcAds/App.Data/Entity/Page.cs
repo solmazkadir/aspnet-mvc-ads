@@ -10,10 +10,10 @@ namespace App.Data.Entity
     public class Page : IEntity
     {
         public int Id { get; set; }
-        [Display(Name = "Başlık")]
-        public string? Title { get; set; }
-        [Display(Name = "İçerik")]
-        public string? Content { get; set; }
+        [Display(Name = "Başlık"), Required(ErrorMessage = "{0} Alanı Gereklidir!")]
+        public string Title { get; set; }
+        [Display(Name = "İçerik"), Required(ErrorMessage = "{0} Alanı Gereklidir!")]
+        public string Content { get; set; }
         [Display(Name = "Durum")]
         public bool IsActive { get; set; }
 

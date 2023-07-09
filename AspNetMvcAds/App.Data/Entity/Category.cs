@@ -10,9 +10,9 @@ namespace App.Data.Entity
     public class Category : IEntity
     {
         public int Id { get; set; }
-        [Display(Name = "Ad")]
-        public string? Name { get; set; }
-        [Display(Name = "Açıklama")]
-        public string? Description { get; set; }
+        [Display(Name = "Ad"), Required(ErrorMessage = "{0} Alanı Gereklidir!")]
+        public string Name { get; set; }
+        [Display(Name = "Açıklama"), Required(ErrorMessage = "{0} Alanı Gereklidir!")]
+        public string Description { get; set; }
     }
 }
