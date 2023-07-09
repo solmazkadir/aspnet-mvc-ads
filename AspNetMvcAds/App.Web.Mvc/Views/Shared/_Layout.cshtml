@@ -22,14 +22,14 @@
     <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/53/8/intl/tr_ALL/util.js"></script>
 </head>
 <body class="body-wrapper">
-    <header>
-        <partial name="_Navbar">
-    </header>
 
-            @RenderBody()
+    <partial name="_Navbar">
 
 
-    <partial name="_Footer"/>
+        @RenderBody()
+
+
+        <partial name="_Footer" />
 
         <script src="~/plugins/jquery/jquery.min.js"></script>
         <script src="~/plugins/bootstrap/js/bootstrap.min.js"></script>
