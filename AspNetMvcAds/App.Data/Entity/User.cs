@@ -17,9 +17,9 @@ namespace App.Data.Entity
         [Display(Name = "Password"), Required(ErrorMessage = "{0} Alanı Gereklidir!")]
         public string Password { get; set; }
         [Display(Name = "Telefon")]
-        public string Phone { get; set; }
+        public string? Phone { get; set; }
         [Display(Name = "Adres")]
-        public string Address { get; set; }
+        public string? Address { get; set; }
         [ScaffoldColumn(false)]
         public Guid? UserGuid { get; set; }
 
