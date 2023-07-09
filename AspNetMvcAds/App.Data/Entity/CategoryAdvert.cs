@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace App.Data.Entity
 {
-    internal class CategoryAdvert
+    public class CategoryAdvert : IEntity
     {
+        public int Id { get; set; }
+        public Category CategoryId { get; set; }
+        public Advert AdvertId { get; set; }
     }
 }
