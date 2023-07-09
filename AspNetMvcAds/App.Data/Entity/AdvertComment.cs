@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace App.Data.Entity
 {
-    internal class AdvertComment
+    public class AdvertComment
     {
         public int Id { get; set; }
         [Display(Name = "İlanId")]
