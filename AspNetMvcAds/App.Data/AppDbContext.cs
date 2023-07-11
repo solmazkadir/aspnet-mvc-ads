@@ -13,41 +13,8 @@ namespace App.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Page> Pages { get; set; }
         public DbSet<Setting> Settings { get; set; }
+        public DbSet<Role> Roles { get; set; }
 
-
-
-
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-            
-        //    optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB; Database=AspNetMvcAds; Trusted_Connection=True");
-            
-        //    base.OnConfiguring(optionsBuilder);
-        //}
-
-
-
-
-
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<User>().HasData(new User
-        //    {
-        //        Id = 1,
-        //        Email = "info@Ads.com",
-        //        Password = "123",
-        //        UserName = "Admin",
-        //        IsActive = true,
-        //        IsAdmin = true,
-        //        Name = "Admin",
-        //        UserGuid = Guid.NewGuid(), 
-        //    });
-
-
-        //    modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly()); 
-
-        //    base.OnModelCreating(modelBuilder);
-        //}
-
+       
     }
 }
