@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<nav class="navbar navbar-expand-lg navbar-light navigation">
-					<a class="navbar-brand" href="index.html">
+					<a class="navbar-brand" asp-controller="Home" asp-action="Index">
 						<img src="/images/logo.png" alt="">
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,23 +12,26 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-auto main-nav ">
 							<li class="nav-item active">
-								<a class="nav-link" href="index.html">Home</a>
+								<a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Home</a>
 							</li>
-							<li class="nav-item dropdown dropdown-slide">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">
-									Dashboard<span><i class="fa fa-angle-down"></i></span>
+							<li class="nav-item active">
+								<a class="nav-link text-dark" asp-controller="Category" asp-action="Index">Categories</a>
+							</li>
+							@*<li class="nav-item dropdown dropdown-slide">
+								<a class="nav-link dropdown-toggle" data-toggle="dropdown" asp-controller="Category" asp-action="Index">
+									Categoriler<span><i class="fa fa-angle-down"></i></span>
 								</a>
 
 								<!-- Dropdown list -->
 								<div class="dropdown-menu">
-									<a class="dropdown-item" href="dashboard.html">Dashboard</a>
-									<a class="dropdown-item" href="dashboard-my-ads.html">Dashboard My Ads</a>
-									<a class="dropdown-item" href="dashboard-favourite-ads.html">Dashboard Favourite Ads</a>
-									<a class="dropdown-item" href="dashboard-archived-ads.html">Dashboard Archived Ads</a>
-									<a class="dropdown-item" href="dashboard-pending-ads.html">Dashboard Pending Ads</a>
+									
+									<a class="dropdown-item" href="dashboard.html">Laptop</a>
+									<a class="dropdown-item" href="dashboard-my-ads.html">İphone</a>
+									<a class="dropdown-item" href="dashboard-favourite-ads.html">Microsoft</a>
+									<a class="dropdown-item" href="dashboard-archived-ads.html">Monitors</a>
 								</div>
-							</li>
-							<li class="nav-item dropdown dropdown-slide">
+							</li>*@
+							@*<li class="nav-item dropdown dropdown-slide">
 								<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									Pages <span><i class="fa fa-angle-down"></i></span>
 								</a>
@@ -45,8 +48,8 @@
 									<a class="dropdown-item" href="blog.html">Blog</a>
 
 								</div>
-							</li>
-							<li class="nav-item dropdown dropdown-slide">
+							</li>*@
+							@*<li class="nav-item dropdown dropdown-slide">
 								<a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									Listing <span><i class="fa fa-angle-down"></i></span>
 								</a>
@@ -55,11 +58,25 @@
 									<a class="dropdown-item" href="category.html">Ad-Gird View</a>
 									<a class="dropdown-item" href="ad-list-view.html">Ad-List View</a>
 								</div>
+							</li>*@
+
+							@*<li class="nav-item active">
+								<a class="nav-link text-dark" asp-controller="Category" asp-action="Index">Tüm Categoriler</a>
+							</li>*@
+
+							<li class="nav-item active">
+								<a class="nav-link text-dark" asp-controller="Home" asp-action="AboutUs">About Us</a>
+							</li>
+							<li class="nav-item active">
+								<a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Contact Us</a>
 							</li>
 						</ul>
 						<ul class="navbar-nav ml-auto mt-10">
 							<li class="nav-item">
-								<a class="nav-link login-button" href="login.html">Login</a>
+								<a class="nav-link login-button" asp-controller="Auth" asp-action="Login">Login</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link login-button" asp-controller="Auth" asp-action="Register">Register</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link text-white add-button" href="ad-listing.html"><i class="fa fa-plus-circle"></i> Add Listing</a>

@@ -64,7 +64,7 @@ namespace App.Data
             };
             dbContext.Users.Add(adminUser);
 
-            //await dbContext.SaveChangesAsync();      SaveChanges hata veriyor
+            //await dbContext.SaveChangesAsync();      //SaveChanges hata veriyor
 
 
         }
