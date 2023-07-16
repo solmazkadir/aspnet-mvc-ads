@@ -11,9 +11,11 @@ namespace App.Data.Entity
 {
     public class AdvertImage : IEntity
     {
+        [Key]
         public int Id { get; set; }
-        public int AdvertId { get; set; }
+        public int? AdvertId { get; set; }
         [Column(TypeName = "NVARCHAR"), StringLength(200)]
         public string ImagePath { get; set; }
+        public virtual Advert adverts { get; set; }
     }
 }

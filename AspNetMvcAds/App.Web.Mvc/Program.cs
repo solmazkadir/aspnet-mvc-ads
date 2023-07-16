@@ -3,7 +3,10 @@ using App.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
 builder.Services.AddControllersWithViews();
+
+
 
 var app = builder.Build();
 
@@ -35,6 +38,6 @@ app.MapControllerRoute(
 
 //        await DbSeeder.Seed(dbContext);
 //    }
-//}                                    //2 Database hata veriyor
+//}
 
 app.Run();

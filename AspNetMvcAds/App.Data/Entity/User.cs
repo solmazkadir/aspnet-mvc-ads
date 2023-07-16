@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace App.Data.Entity
 {
-    public class User : IEntity
+    public class User : IEntity, IAuditEntity
     {
         public int Id { get; set; }
         [Display(Name = "Ad"), Required(ErrorMessage = "{0} Alanı Gereklidir!"), Column(TypeName = "NVARCHAR"), StringLength(100)]
@@ -23,5 +23,12 @@ namespace App.Data.Entity
         public int RoleId { get; set; }
         [ForeignKey(nameof(RoleId))]
         public virtual Role? Role { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public DateTime? DeletedAt { get; set; }
+
+        public ICollection<AdvertComment> advertComments { get; set; }
+        public ICollection<Setting> settings { get; set; }
+        public ICollection<Advert> adverts { get; set; }
     }
 }

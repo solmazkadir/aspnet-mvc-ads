@@ -16,5 +16,6 @@ namespace App.Data.Entity
         public string Name { get; set; }
         [Display(Name = "Açıklama"), Required(ErrorMessage = "{0} Alanı Gereklidir!"), Column(TypeName = "NVARCHAR"), StringLength(200)]
         public string Description { get; set; }
+        public ICollection<CategoryAdvert> CategoryAdverts { get; set; }
     }
 }

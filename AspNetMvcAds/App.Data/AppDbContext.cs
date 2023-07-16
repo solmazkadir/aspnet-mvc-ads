@@ -1,10 +1,11 @@
 ﻿using App.Data.Entity;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using System.Reflection.Emit;
 
 namespace App.Data
 {
-    public class AppDbContext
+    public class AppDbContext :DbContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Advert> Adverts { get; set; }
@@ -15,6 +16,16 @@ namespace App.Data
         public DbSet<Setting> Settings { get; set; }
         public DbSet<Role> Roles { get; set; }
 
-       
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB; Database=Estore; Trusted_Connection=True");
+           
+            base.OnConfiguring(optionsBuilder);
+        }
+
+
+
+   
     }
 }
