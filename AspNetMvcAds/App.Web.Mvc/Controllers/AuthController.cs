@@ -16,5 +16,17 @@ namespace App.Web.Mvc.Controllers
         {
             return View();
         }
+        public IActionResult TermsAndConditions()
+        {
+            return View();
+        }
+        public IActionResult UserProfile()
+        {
+            return View();
+        } 
+        public IActionResult AddListing()
+        {
+            return View();
+        }
     }
 }

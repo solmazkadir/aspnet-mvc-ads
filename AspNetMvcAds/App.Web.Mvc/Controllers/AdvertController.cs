@@ -13,6 +13,22 @@ namespace App.Web.Mvc.Controllers
         {
             return View();
         }
+        public IActionResult Package()
+        {
+            return View();
+        }
+        public IActionResult StoreSingle()
+        {
+            return View();
+        }
+        public IActionResult SinglePost()
+        {
+            return View();
+        } 
+        public IActionResult Blog()
+        {
+            return View();
+        }
        
     }
 }
