@@ -11,6 +11,7 @@ namespace App.Data.Entity
 {
     public class Setting : IEntity
     {
+        [Key]
         public int Id { get; set; }
         [Display(Name = "Kullanıcı Id")]
         public int UserId { get; set; }
@@ -18,5 +19,6 @@ namespace App.Data.Entity
         public string Name { get; set; }
         [Display(Name = "Değer"), Column(TypeName = "NVARCHAR"), StringLength(200)]
         public string Value { get; set; }
+        public virtual User User { get; set; }
     }
 }
