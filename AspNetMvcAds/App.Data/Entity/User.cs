@@ -5,30 +5,37 @@ namespace App.Data.Entity
 {
     public class User : IEntity, IAuditEntity
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [Display(Name = "Ad"), Required(ErrorMessage = "{0} Alanı Gereklidir!"), Column(TypeName = "NVARCHAR"), StringLength(100)]
+        [MaxLength(100)]
+        [Display(Name = "Ad"), Required(ErrorMessage = "{0} Alanı Gereklidir!"), Column(TypeName = "NVARCHAR")]
         public string Name { get; set; }
-        [Display(Name = "Email"), Required(ErrorMessage = "{0} Alanı Gereklidir!"), Column(TypeName = "VARCHAR"), StringLength(250)]
+        [MaxLength(200)]
+        [Display(Name = "Email"), Required(ErrorMessage = "{0} Alanı Gereklidir!"), Column(TypeName = "VARCHAR")]
         public string Email { get; set; }
-        [Display(Name = "Password"), Required(ErrorMessage = "{0} Alanı Gereklidir!"), Column(TypeName = "NVARCHAR"), StringLength(100)]
+        [MaxLength(200)]
+        [Display(Name = "Password"), Required(ErrorMessage = "{0} Alanı Gereklidir!"), Column(TypeName = "NVARCHAR")]
         public string Password { get; set; }
-        [Display(Name = "Telefon"), Column(TypeName = "NVARCHAR"), StringLength(20)]
+        [MaxLength(20)]
+        [Display(Name = "Telefon"), Column(TypeName = "NVARCHAR")]
         public string? Phone { get; set; }
-        [Display(Name = "Adres"), Column(TypeName = "NVARCHAR"), StringLength(200)]
+        [MaxLength(200)]
+        [Display(Name = "Adres"), Column(TypeName = "NVARCHAR")]
         public string? Address { get; set; }
         [ScaffoldColumn(false)]
         public Guid? UserGuid { get; set; }
 
-
+        [Required]
+        [ForeignKey("Role")]
         public int RoleId { get; set; }
-        [ForeignKey(nameof(RoleId))]
+        
         public virtual Role? Role { get; set; }
-        public DateTime? CreatedAt { get; set; }
+        [ScaffoldColumn(false)]
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
 
-        public ICollection<AdvertComment> advertComments { get; set; }
-        public ICollection<Setting> settings { get; set; }
-        public ICollection<Advert> adverts { get; set; }
+        
     }
 }

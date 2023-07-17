@@ -6,8 +6,12 @@ namespace App.Data.Entity
     public class Role : IEntity
     {
         [Required]
-        [MinLength(1)]
-        [Column(TypeName ="nvarchar")]
-        public string? Name { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        [Required]
+        [MaxLength(100)]
+        [Column(TypeName = "NVARCHAR")]
+        public string Name { get; set; }
     }
 }

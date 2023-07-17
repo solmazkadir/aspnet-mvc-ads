@@ -11,19 +11,23 @@ namespace App.Data.Entity
 {
     public class Advert : IEntity, IAuditEntity
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+
         public int Id { get; set; }
         [Display(Name = "Kullanıcı Id")]
-        public int UserId { get; set; }
-        [Display(Name = "Başlık"), Column(TypeName = "NVARCHAR"), StringLength(200)]
+        public int? UserId { get; set; }
+        [MaxLength(200)]
+        [Display(Name = "Başlık"), Column(TypeName = "NVARCHAR"),Required]
         public string Title { get; set; }
-        [Display(Name = "Açıklama")]
+        [Display(Name = "Açıklama"), Required]
         public string Description { get; set; }
-        public DateTime? CreatedAt { get; set; }
+        [ScaffoldColumn(false)]
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
-        public virtual User User { get; set; }
-        public ICollection<AdvertComment>? advertComments { get; set; }
-        public ICollection<CategoryAdvert> categoryAdverts { get; set; }
-        public ICollection<AdvertImage> advertImages { get; set; }
+        [ForeignKey(nameof(UserId))]
+        public virtual User? User { get; set; }
+       
     }
 }

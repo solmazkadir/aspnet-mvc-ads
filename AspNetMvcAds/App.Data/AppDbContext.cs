@@ -16,16 +16,16 @@ namespace App.Data
         public DbSet<Setting> Settings { get; set; }
         public DbSet<Role> Roles { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public AppDbContext()
         {
             
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB; Database=Estore; Trusted_Connection=True");
-           
-            base.OnConfiguring(optionsBuilder);
+        }
+        public AppDbContext(DbContextOptions options) : base(options)
+        {
+            
         }
 
 
 
-   
     }
 }
