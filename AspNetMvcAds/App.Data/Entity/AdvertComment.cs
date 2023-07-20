@@ -27,7 +27,7 @@ namespace App.Data.Entity
         [ForeignKey(nameof(UserId))]
         public virtual User User { get; set; }
         [ScaffoldColumn(false)]
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
     }

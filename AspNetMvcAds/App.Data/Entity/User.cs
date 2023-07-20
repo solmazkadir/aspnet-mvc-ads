@@ -32,7 +32,7 @@ namespace App.Data.Entity
         
         public virtual Role? Role { get; set; }
         [ScaffoldColumn(false)]
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
 

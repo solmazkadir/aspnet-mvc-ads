@@ -16,7 +16,7 @@ namespace App.Data.Concrete
         {
         }
 
-        public async Task<Advert> GetAdvertByIncludeAsync(int id)
+        public async Task<Advert> GetAdvertByIncludeAsync(int id)//byidasync
         {
             return await _context.Adverts.Include(p => p.User).FirstOrDefaultAsync(p => p.Id == id);
         }
@@ -26,9 +26,22 @@ namespace App.Data.Concrete
             return await _context.Adverts.ToListAsync();
         }
 
-        public async Task<List<Advert>> GetAdvertsByIncludeAsync(Expression<Func<Advert, bool>> expression)
+        public async Task<List<Advert>> GetAdvertsByIncludeAsync(Expression<Func<Advert, bool>> expression) //isimleri düzenle
         {
             return await _context.Adverts.Where(expression).ToListAsync();
+        }
+
+        public async Task<List<Advert>> GetAdvertsByContentAndLocationAsync(string searchKey, string? location = null)
+        {
+            IQueryable<Advert> query = _context.Adverts;
+
+            query = query.Where(p => p.Title.Contains(searchKey) || p.Description.Contains(searchKey));
+            if (location != null)
+            {
+                query = query.Where(p => p.Location.Contains(location));
+            }
+
+            return await query.ToListAsync();
         }
     }
 }

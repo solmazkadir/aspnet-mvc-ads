@@ -15,15 +15,16 @@ namespace App.Data.Concrete
         {
         }
 
-        public async Task<CategoryAdvert> GetAdvertByIncludeAsync(int id)
+        public async Task<CategoryAdvert> GetAdvertByIncludeAsync(int id) //id
         {
-            return await _dbSet.Where(c => c.Id == id).AsNoTracking().Include(c =>c.adverts).FirstOrDefaultAsync();
+            return await _dbSet.Where(c => c.Id == id).AsNoTracking().Include(c =>c.Adverts).Include(c=>c.Category).FirstOrDefaultAsync();
         }
 
 
-        public async Task<CategoryAdvert> GetCategoryByIncludeAsync(int id)
+        public async Task<CategoryAdvert> GetCategoryByIncludeAsync(int id) //gerek yok
         {
             return await _dbSet.Where(c => c.Id == id).AsNoTracking().Include(c => c.Category).FirstOrDefaultAsync();
         }
+        
     }
 }

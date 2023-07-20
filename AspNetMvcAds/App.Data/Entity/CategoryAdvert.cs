@@ -16,11 +16,11 @@ namespace App.Data.Entity
         public int? CategoryId { get; set; }
         public int? AdvertId { get; set; }
         [ForeignKey(nameof(AdvertId))]
-        public virtual Advert? adverts { get; set; }
+        public virtual Advert? Adverts { get; set; }
         [ForeignKey(nameof(CategoryId))]
         public virtual Category? Category { get; set; }
         [ScaffoldColumn(false)]
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
     }
