@@ -1,0 +1,38 @@
+﻿@model IEnumerable<AdvertImage>
+
+@{
+    ViewData["Title"] = "İlan Resimleri";
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-primary">Yeni Ekle</a>
+</p>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ImagePath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.adverts)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                    <img src="/Images/@item.ImagePath" alt="" height="50" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.adverts.Description)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Düzenle</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Sil</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

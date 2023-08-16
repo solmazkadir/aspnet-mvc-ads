@@ -1,6 +1,7 @@
 using App.Data;
 using App.Data.Abstract;
 using App.Data.Concrete;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,9 +11,25 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    string? AppDbStr = builder.Configuration.GetConnectionString("DbStr");
-    options.UseSqlServer(AppDbStr);
+    string? DbStr = builder.Configuration.GetConnectionString("DbStr");
+    options.UseSqlServer(DbStr);
 });
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x =>
+{
+	x.LoginPath = "/Admin/Login";
+	x.LogoutPath = "/Admin/Logout";
+	x.AccessDeniedPath = "/AccessDenied";
+	x.Cookie.Name = "Administrator";
+	x.Cookie.MaxAge = TimeSpan.FromDays(1);
+});
+
+builder.Services.AddAuthorization(x =>
+{
+	x.AddPolicy("AdminPolicy", p => p.RequireClaim("Role", "Admin"));
+	x.AddPolicy("UserPolicy", p => p.RequireClaim("Role", "User"));
+});
+
 
 builder.Services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
 
@@ -31,12 +48,14 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.MapControllerRoute(
-     name: "admin",
-     pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
-
+			name: "admin",
+			pattern: "{area:exists}/{controller=Main}/{action=Index}/{id?}"
+		  );
 
 app.MapControllerRoute(
     name: "default",

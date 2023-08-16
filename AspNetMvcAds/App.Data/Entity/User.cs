@@ -25,6 +25,8 @@ namespace App.Data.Entity
         public string? Address { get; set; }
         [ScaffoldColumn(false)]
         public Guid? UserGuid { get; set; }
+        [Display(Name = "Kullanıcı Adı")]
+        public string? UserName { get; set; }
 
         [Required]
         [ForeignKey("Role")]
@@ -35,7 +37,7 @@ namespace App.Data.Entity
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime? UpdatedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
-
-        
+        public bool IsActive { get; set; }
+        public bool IsAdmin { get; set; }
     }
 }
