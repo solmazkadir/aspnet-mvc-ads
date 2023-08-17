@@ -7,7 +7,7 @@ using System.Drawing.Drawing2D;
 
 namespace App.Web.Mvc.Areas.Admin.Controllers
 {
-    [Area("Admin"), Authorize(Policy = "AdminPolicy")]
+    [Area("Admin")/*, Authorize(Policy = "AdminPolicy")*/]
     public class AdvertsController : Controller
     {
         private readonly IService<Advert> _service; // readonly nesneler sadece constructor metotta doldurulabilir

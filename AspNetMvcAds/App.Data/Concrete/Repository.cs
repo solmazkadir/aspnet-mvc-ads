@@ -15,6 +15,11 @@ namespace App.Data.Concrete
         internal AppDbContext _context; 
         internal DbSet<T> _dbSet;
 
+        public Repository(AppDbContext context)
+        {
+            this._context = context;
+        }
+
         public Repository(AppDbContext context, DbSet<T> dbSet)
         {
             _context = context;

@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace AspNetMvcAds.Mvc.Areas.Admin.Controllers
 {
-	[Area("Admin"), Authorize(Policy = "AdminPolicy")]
+	[Area("Admin")/*, Authorize(Policy = "AdminPolicy")*/]
 
 	public class MainController : Controller
     {

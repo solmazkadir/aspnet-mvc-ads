@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace App.Web.Mvc.Areas.Admin.Controllers
 {
-    [Area("Admin"), Authorize(Policy = "AdminPolicy")]
+    [Area("Admin")/*, Authorize(Policy = "AdminPolicy")*/]
 
     public class CategoryController : Controller
     {

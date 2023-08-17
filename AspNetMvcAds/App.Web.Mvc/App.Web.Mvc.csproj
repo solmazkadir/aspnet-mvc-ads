@@ -19,7 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\App.Data\App.Data.csproj" />
     <ProjectReference Include="..\AspNetMvcAds.Service\AspNetMvcAds.Service.csproj" />
   </ItemGroup>
 

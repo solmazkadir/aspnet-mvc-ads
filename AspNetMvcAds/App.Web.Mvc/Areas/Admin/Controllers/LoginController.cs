@@ -10,11 +10,11 @@ namespace AspNetMvcAds.Mvc.Areas.Admin.Controllers
     [Area("Admin")]
     public class LoginController : Controller
     {
-		private readonly IService<User> _userService;
+		private readonly IService<User> _service;
 
 		public LoginController(IService<User> userService)
 		{
-			_userService = userService;
+            _service = userService;
 		}
 		public IActionResult Index(string ReturnUrl)
         {
@@ -33,7 +33,7 @@ namespace AspNetMvcAds.Mvc.Areas.Admin.Controllers
         {
             try
             {
-                var kullanici = await _userService.GetAsync(k => k.IsActive && k.Email == admin.Email && k.Password == admin.Password);
+                var kullanici = await _service.GetAsync(k => k.IsActive && k.Email == admin.Email && k.Password == admin.Password);
                 if (kullanici != null)
                 {
                     var kullaniciYetkileri = new List<Claim>
